@@ -1,0 +1,2 @@
+# otelcollector
+otel collector distribution
