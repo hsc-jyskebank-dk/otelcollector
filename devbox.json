@@ -15,9 +15,8 @@
       "echo 'Welcome to devbox!' > /dev/null"
     ],
     "scripts": {
-      "test": [
-        "echo \"Error: no test specified\" && exit 1"
-      ]
+      "StartWiki": "docker run --name wikidocs -d -p 8080:80 -v ./docs:/datasets -e PUID=1000 -e PGID=1000 zavy86/wikidocs",
+      "StopWiki": "docker stop wikidocs && docker rm wikidocs"
     }
   }
 }
