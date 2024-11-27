@@ -3,7 +3,7 @@ define('DEBUGGABLE',false);
 define('PATH',"/");
 define('LANG',"en");
 define('TIMEZONE',"default");
-define('TITLE',"OtelCollector");
+define('TITLE',"Otel\nCollector");
 define('SUBTITLE',"Bespoke Dist");
 define('OWNER',"Jyske Bank A/S");
 define('NOTICE',"MIT What Not");
