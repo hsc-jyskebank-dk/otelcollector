@@ -1,15 +1,8 @@
-using System;
 using System.Linq;
 using Nuke.Common;
-using Nuke.Common.CI;
-using Nuke.Common.Execution;
 using Nuke.Common.IO;
-using Nuke.Common.ProjectModel;
-using Nuke.Common.Tooling;
 using Nuke.Common.Utilities.Collections;
-using static Nuke.Common.EnvironmentInfo;
-using static Nuke.Common.IO.FileSystemTasks;
-using static Nuke.Common.IO.PathConstruction;
+using static Nuke.Common.Tools.PowerShell.PowerShellTasks;
 
 class Build : NukeBuild
 {
@@ -19,26 +12,23 @@ class Build : NukeBuild
     ///   - Microsoft VisualStudio     https://nuke.build/visualstudio
     ///   - Microsoft VSCode           https://nuke.build/vscode
 
-    public static int Main () => Execute<Build>(x => x.Compile);
+    public static int Main () => Execute<Build>(x => x.BuildCollector);
 
-    [Parameter("Configuration to build - Default is 'Debug' (local) or 'Release' (server)")]
-    readonly Configuration Configuration = IsLocalBuild ? Configuration.Debug : Configuration.Release;
+    [Parameter("OpenTelemetry Collector Builder version")]
+    [Required]
+    readonly string? CollectorVersion;
 
-    Target Clean => _ => _
-        .Before(Restore)
+    Target BuildCollector => _ => _
+        .Requires(() => CollectorVersion)
         .Executes(() =>
         {
-        });
+            var collectorDir = RootDirectory / "collector";
+            collectorDir.CreateOrCleanDirectory();
 
-    Target Restore => _ => _
-        .Executes(() =>
-        {
-        });
+            Ocb.Install(CollectorVersion).ForEach(x => Serilog.Log.Information(x ?? string.Empty));
 
-    Target Compile => _ => _
-        .DependsOn(Restore)
-        .Executes(() =>
-        {
-        });
+            var collectorConfig = RootDirectory / "manifest.yaml";
 
+            var result = PowerShell($"-Command {Ocb.GetOcbName()} --config {collectorConfig}").FirstOrDefault();
+        });
 }

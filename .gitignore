@@ -1,1 +1,6 @@
 /bin/
+/.nuke/temp/
+ocb
+ocb.exe
+/build/bin/
+/build/obj/
