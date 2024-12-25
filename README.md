@@ -14,3 +14,11 @@ otel collector distribution
 [windowsperfcounters](opentelemetry-collector-contrib/receiver/windowsperfcountersreceiver)
 
 ### exporters
+[debug](https://pkg.go.dev/go.opentelemetry.io/collector/exporter/debugexporter)
+[file](https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/main/exporter/fileexporter/README.md)
+[loki](https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/main/exporter/lokiexporter/README.md)
+[otlp](https://pkg.go.dev/go.opentelemetry.io/collector/exporter/otlpexporter)
+[prometheus](https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/main/exporter/prometheusexporter/README.md)
+[prometheus-remote-write](https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/main/exporter/prometheusremotewriteexporter/README.md)
+
+### processors
