@@ -22,3 +22,14 @@ otel collector distribution
 [prometheus-remote-write](https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/main/exporter/prometheusremotewriteexporter/README.md)
 
 ### processors
+[batch](https://pkg.go.dev/go.opentelemetry.io/collector/processor/batchprocessor)
+[memory-limiter](https://pkg.go.dev/go.opentelemetry.io/collector/processor/memorylimiterprocessor)
+[filter](https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/main/processor/filterprocessor/README.md)
+[attributes](https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/main/processor/attributesprocessor/README.md)
+[logtransform](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/processor/logstransformprocessor)
+[metricstransform](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/processor/metricstransformprocessor)
+[span](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/processor/spanprocessor)
+[transform](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/processor/transformprocessor)
+[resource-detection](https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/main/processor/resourcedetectionprocessor/README.md)
+
+### extensions
