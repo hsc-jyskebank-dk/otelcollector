@@ -3,7 +3,7 @@
   "packages": [
     "gitversion@5.12.0",
     "gitflow@latest",
-    "github:henrikschristensen/JeezyVim/v1.1.1",
+    "github:henrikschristensen/JeezyVim/v1.1.4",
     "powershell@latest",
     "docker-compose@latest",
     "bash@latest",
