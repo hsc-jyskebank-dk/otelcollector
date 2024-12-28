@@ -41,3 +41,8 @@ receivers:
   - gomod: github.com/open-telemetry/opentelemetry-collector-contrib/receiver/windowseventlogreceiver v0.115.0
   - gomod: github.com/open-telemetry/opentelemetry-collector-contrib/receiver/webhookeventreceiver v0.115.0
   - gomod: github.com/open-telemetry/opentelemetry-collector-contrib/receiver/windowsperfcountersreceiver v0.115.0
+
+connectors:
+  - gomod: github.com/open-telemetry/opentelemetry-collector-contrib/connector/exceptionsconnector v0.115.0
+  - gomod: github.com/open-telemetry/opentelemetry-collector-contrib/connector/servicegraphconnector v0.115.0
+  - gomod: github.com/open-telemetry/opentelemetry-collector-contrib/connector/spanmetricsconnector v0.115.0
