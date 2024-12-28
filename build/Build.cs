@@ -2,7 +2,7 @@ using System.Linq;
 using Nuke.Common;
 using Nuke.Common.IO;
 using Nuke.Common.Utilities.Collections;
-using static Nuke.Common.Tools.PowerShell.PowerShellTasks;
+using static Nuke.Common.Tools.Pwsh.PwshTasks;
 
 class Build : NukeBuild
 {
@@ -28,7 +28,8 @@ class Build : NukeBuild
             Ocb.Install(CollectorVersion).ForEach(x => Serilog.Log.Information(x ?? string.Empty));
 
             var collectorConfig = RootDirectory / "manifest.yaml";
+	        var builder = RootDirectory / Ocb.GetOcbName();
 
-            var result = PowerShell($"-Command {Ocb.GetOcbName()} --config {collectorConfig}").FirstOrDefault();
+            var result = Pwsh($"-Command {builder} --config {collectorConfig}").FirstOrDefault();
         });
 }
